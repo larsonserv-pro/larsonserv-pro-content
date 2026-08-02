@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Airport WiFi Passwords — 111 Airports Worldwide | LarsonServ.Pro</title>
+<meta name="description" content="Free WiFi passwords for 111 airports worldwide. Search by airport name, city, or IATA code. Updated regularly by LarsonServ.Pro.">
+<meta property="og:title" content="Free Airport WiFi Passwords — 111 Airports Worldwide">
+<meta property="og:description" content="Searchable WiFi password database for 111 airports. Save this page before you fly.">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    background:#0f172a;color:#e2e8f0;
+    min-height:100vh;padding:24px 16px 48px;
+  }
+  .hero{text-align:center;padding:32px 16px 28px;}
+  .hero h1{font-size:clamp(1.4em,4vw,2em);color:#38bdf8;line-height:1.3;margin-bottom:10px}
+  .hero p{color:#94a3b8;font-size:.9em;line-height:1.6}
+  .hero .count{
+    display:inline-block;background:#1e293b;border:1px solid #334155;
+    border-radius:20px;padding:4px 14px;font-size:.8em;color:#38bdf8;
+    font-weight:700;margin:8px 0 0;
+  }
+  .search-wrap{
+    max-width:620px;margin:24px auto 20px;position:relative;
+  }
+  #search{
+    width:100%;padding:14px 48px 14px 20px;
+    background:#1e293b;border:2px solid #334155;border-radius:12px;
+    color:#e2e8f0;font-size:1em;outline:none;
+    transition:border-color .2s;
+  }
+  #search:focus{border-color:#38bdf8}
+  #search::placeholder{color:#475569}
+  .search-icon{
+    position:absolute;right:16px;top:50%;transform:translateY(-50%);
+    color:#475569;font-size:1.2em;pointer-events:none;
+  }
+  #result-count{
+    text-align:center;font-size:.8em;color:#64748b;margin-bottom:16px;
+  }
+  .filters{
+    display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;
+  }
+  .filter-btn{
+    padding:5px 14px;border-radius:20px;border:1px solid #334155;
+    background:#1e293b;color:#94a3b8;font-size:.78em;cursor:pointer;
+    transition:all .15s;
+  }
+  .filter-btn.active,.filter-btn:hover{
+    background:#0369a1;border-color:#38bdf8;color:#fff;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:14px;max-width:1200px;margin:0 auto;
+  }
+  .card{
+    background:#1e293b;border:1px solid #334155;border-radius:12px;
+    padding:18px;transition:border-color .2s,transform .15s;
+    cursor:default;
+  }
+  .card:hover{border-color:#38bdf8;transform:translateY(-2px)}
+  .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:10px}
+  .airport-name{font-weight:700;font-size:.95em;color:#e2e8f0;line-height:1.3}
+  .iata{
+    flex-shrink:0;background:#0c4a6e;color:#38bdf8;
+    font-weight:800;font-size:.85em;padding:3px 8px;
+    border-radius:6px;letter-spacing:.5px;font-family:monospace;
+  }
+  .location{font-size:.78em;color:#64748b;margin-bottom:12px}
+  .wifi-row{
+    background:#0f172a;border-radius:8px;padding:10px 12px;
+    margin-bottom:8px;
+  }
+  .wifi-label{font-size:.68em;color:#475569;text-transform:uppercase;letter-spacing:.8px;margin-bottom:3px}
+  .wifi-value{
+    font-family:monospace;font-size:.88em;color:#a5f3fc;
+    word-break:break-all;line-height:1.4;
+  }
+  .wifi-value.open{color:#4ade80;font-style:italic}
+  .wifi-value.none{color:#f87171;font-style:italic}
+  .copy-btn{
+    display:inline-block;margin-top:4px;padding:2px 8px;
+    background:#164e63;border:none;border-radius:4px;
+    color:#7dd3fc;font-size:.7em;cursor:pointer;
+    transition:background .15s;
+  }
+  .copy-btn:hover{background:#0c4a6e}
+  .copy-btn.copied{background:#14532d;color:#4ade80}
+  .verified{
+    font-size:.68em;color:#475569;margin-top:8px;
+    display:flex;align-items:center;gap:4px;
+  }
+  .verified.fresh{color:#22c55e}
+  .verified.stale{color:#f59e0b}
+  .no-results{
+    text-align:center;padding:48px 16px;color:#475569;
+    grid-column:1/-1;
+  }
+  .tip-box{
+    max-width:700px;margin:32px auto 0;
+    background:#1e293b;border:1px solid #334155;border-left:4px solid #f59e0b;
+    border-radius:8px;padding:16px 20px;font-size:.82em;color:#94a3b8;line-height:1.7;
+  }
+  .tip-box strong{color:#fbbf24}
+  .tip-box a{color:#38bdf8}
+  .footer{
+    text-align:center;margin-top:40px;font-size:.72em;
+    color:#334155;line-height:1.8;
+  }
+  .footer a{color:#38bdf8}
+  @media(max-width:480px){
+    .grid{grid-template-columns:1fr}
+    .hero h1{font-size:1.3em}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>&#x1F6EB; Free Airport WiFi Passwords</h1>
+  <p>Search by airport name, city, country, or IATA code.<br>
+  Save this page before you fly &mdash; works offline once loaded.</p>
+  <span class="count">111 airports worldwide</span>
+</div>
+
+<div class="search-wrap">
+  <input type="text" id="search" placeholder="Search: LAX, Heathrow, Tokyo, Mexico City..." autocomplete="off" autofocus>
+  <span class="search-icon">&#x1F50D;</span>
+</div>
+
+<div id="result-count"></div>
+
+<div class="filters">
+  <button class="filter-btn active" data-region="all">All Regions</button>
+  <button class="filter-btn" data-region="North America">North America</button>
+  <button class="filter-btn" data-region="Europe">Europe</button>
+  <button class="filter-btn" data-region="Asia">Asia</button>
+  <button class="filter-btn" data-region="Latin America">Latin America</button>
+  <button class="filter-btn" data-region="Middle East">Middle East</button>
+  <button class="filter-btn" data-region="Africa">Africa</button>
+  <button class="filter-btn" data-region="Oceania">Oceania</button>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<div class="tip-box">
+  <strong>&#x26A0; Security tip:</strong> Always use a VPN before connecting to any airport WiFi &mdash;
+  even free networks. Public WiFi is a prime target for data theft.
+  I use <a href="https://get.surfshark.net/aff_c?offer_id=926&aff_id=9232" target="_blank" rel="nofollow sponsored">Surfshark</a>
+  (affiliate link) &mdash; one tap and you're protected on any network.
+  Also worth carrying a <a href="https://shareasale.com/u.cfm?d=811875&m=69102&u=2878350&afftrack=" target="_blank" rel="nofollow sponsored">GlocalMe portable hotspot</a>
+  (affiliate link) as a backup so you're never dependent on airport WiFi at all.
+</div>
+
+<div class="footer">
+  Curated by <a href="https://larsonserv.pro">LarsonServ.Pro</a> &bull;
+  WiFi info can change &mdash; always double-check signs at the airport &bull;
+  Last updated: August 02, 2026<br>
+  <a href="https://larsonserv.pro/Travel/Connected/WiFi">Back to Connected page</a>
+</div>
+
+<script>
+const AIRPORTS = [{"name": "Los Angeles International Airport", "iata": "LAX", "city": "Los Angeles", "country": "USA", "region": "North America", "network": "LAX Free WiFi", "password": "None required", "notes": "Unlimited free, no login page", "verified": "2024-08-01"}, {"name": "Hartsfield-Jackson Atlanta International", "iata": "ATL", "city": "Atlanta", "country": "USA", "region": "North America", "network": "ATL Airport Free WiFi", "password": "None required", "notes": "Unlimited. Available throughout all terminals", "verified": "2024-08-01"}, {"name": "Chicago O'Hare International", "iata": "ORD", "city": "Chicago", "country": "USA", "region": "North America", "network": "ORD Free WiFi", "password": "None required", "notes": "Free unlimited. Boingo also available paid", "verified": "2024-08-01"}, {"name": "Dallas Fort Worth International", "iata": "DFW", "city": "Dallas", "country": "USA", "region": "North America", "network": "DFW Free WiFi", "password": "None required", "notes": "Free throughout all terminals", "verified": "2024-08-01"}, {"name": "Denver International Airport", "iata": "DEN", "city": "Denver", "country": "USA", "region": "North America", "network": "DEN Free WiFi", "password": "None required", "notes": "Free unlimited. Provided by Comcast Xfinity", "verified": "2024-08-01"}, {"name": "John F. Kennedy International Airport", "iata": "JFK", "city": "New York", "country": "USA", "region": "North America", "network": "JFK WiFi", "password": "None required", "notes": "Free. Some terminals have Boingo hotspots", "verified": "2024-08-01"}, {"name": "LaGuardia Airport", "iata": "LGA", "city": "New York", "country": "USA", "region": "North America", "network": "LGA Free WiFi", "password": "None required", "notes": "Free throughout renovated terminals", "verified": "2024-08-01"}, {"name": "Newark Liberty International Airport", "iata": "EWR", "city": "Newark", "country": "USA", "region": "North America", "network": "EWR Free WiFi", "password": "None required", "notes": "Free. Unlimited via Boingo partnership", "verified": "2024-08-01"}, {"name": "San Francisco International Airport", "iata": "SFO", "city": "San Francisco", "country": "USA", "region": "North America", "network": "SFO Free WiFi", "password": "None required", "notes": "Free unlimited throughout all terminals", "verified": "2024-08-01"}, {"name": "Seattle-Tacoma International Airport", "iata": "SEA", "city": "Seattle", "country": "USA", "region": "North America", "network": "SEA Free WiFi", "password": "None required", "notes": "Free unlimited, provided by Wave Broadband", "verified": "2024-08-01"}, {"name": "Miami International Airport", "iata": "MIA", "city": "Miami", "country": "USA", "region": "North America", "network": "MIA Free WiFi", "password": "None required", "notes": "Free throughout all concourses", "verified": "2024-08-01"}, {"name": "Orlando International Airport", "iata": "MCO", "city": "Orlando", "country": "USA", "region": "North America", "network": "MCO Free WiFi", "password": "None required", "notes": "Free unlimited throughout terminals", "verified": "2024-08-01"}, {"name": "Phoenix Sky Harbor International", "iata": "PHX", "city": "Phoenix", "country": "USA", "region": "North America", "network": "PHX Free WiFi", "password": "None required", "notes": "Free throughout terminals A, B, C, D", "verified": "2024-08-01"}, {"name": "Las Vegas Harry Reid International", "iata": "LAS", "city": "Las Vegas", "country": "USA", "region": "North America", "network": "LAS Free WiFi", "password": "None required", "notes": "Free, unlimited throughout all terminals", "verified": "2024-08-01"}, {"name": "Minneapolis-Saint Paul International", "iata": "MSP", "city": "Minneapolis", "country": "USA", "region": "North America", "network": "MSP Free WiFi", "password": "None required", "notes": "Free. Sponsored by Delta Air Lines", "verified": "2024-08-01"}, {"name": "Boston Logan International Airport", "iata": "BOS", "city": "Boston", "country": "USA", "region": "North America", "network": "BOS Free WiFi", "password": "None required", "notes": "Free throughout all terminals", "verified": "2024-08-01"}, {"name": "Charlotte Douglas International Airport", "iata": "CLT", "city": "Charlotte", "country": "USA", "region": "North America", "network": "CLT Free WiFi", "password": "None required", "notes": "Free throughout all gates", "verified": "2024-08-01"}, {"name": "Houston Bush Intercontinental Airport", "iata": "IAH", "city": "Houston", "country": "USA", "region": "North America", "network": "IAH Free WiFi", "password": "None required", "notes": "Free. Also United Club paid premium option", "verified": "2024-08-01"}, {"name": "Washington Dulles International", "iata": "IAD", "city": "Washington DC", "country": "USA", "region": "North America", "network": "Dulles Airport WiFi", "password": "None required", "notes": "Free throughout main terminal and concourses", "verified": "2024-08-01"}, {"name": "Ronald Reagan Washington National", "iata": "DCA", "city": "Washington DC", "country": "USA", "region": "North America", "network": "DCA Free WiFi", "password": "None required", "notes": "Free throughout all terminals", "verified": "2024-08-01"}, {"name": "Salt Lake City International Airport", "iata": "SLC", "city": "Salt Lake City", "country": "USA", "region": "North America", "network": "SLC Airport WiFi", "password": "None required", "notes": "Free. New terminal opened 2020, excellent WiFi", "verified": "2024-08-01"}, {"name": "Portland International Airport", "iata": "PDX", "city": "Portland", "country": "USA", "region": "North America", "network": "PDX Free WiFi", "password": "None required", "notes": "Free unlimited. Known for fast speeds", "verified": "2024-08-01"}, {"name": "San Diego International Airport", "iata": "SAN", "city": "San Diego", "country": "USA", "region": "North America", "network": "SAN Free WiFi", "password": "None required", "notes": "Free throughout both terminals", "verified": "2024-08-01"}, {"name": "Detroit Metro Wayne County Airport", "iata": "DTW", "city": "Detroit", "country": "USA", "region": "North America", "network": "DTW Free WiFi", "password": "None required", "notes": "Free. McNamara and North terminals", "verified": "2024-08-01"}, {"name": "Philadelphia International Airport", "iata": "PHL", "city": "Philadelphia", "country": "USA", "region": "North America", "network": "PHL Free WiFi", "password": "None required", "notes": "Free throughout all terminals", "verified": "2024-08-01"}, {"name": "Austin-Bergstrom International Airport", "iata": "AUS", "city": "Austin", "country": "USA", "region": "North America", "network": "AUS Free WiFi", "password": "None required", "notes": "Free unlimited, fast speeds", "verified": "2024-08-01"}, {"name": "Nashville International Airport", "iata": "BNA", "city": "Nashville", "country": "USA", "region": "North America", "network": "BNA Free WiFi", "password": "None required", "notes": "Free throughout all concourses", "verified": "2024-08-01"}, {"name": "Fort Lauderdale Hollywood International", "iata": "FLL", "city": "Fort Lauderdale", "country": "USA", "region": "North America", "network": "FLL Free WiFi", "password": "None required", "notes": "Free. Good in Terminals 1–4", "verified": "2024-08-01"}, {"name": "Tampa International Airport", "iata": "TPA", "city": "Tampa", "country": "USA", "region": "North America", "network": "TPA Free WiFi", "password": "None required", "notes": "Free. Consistently rated one of best in US", "verified": "2024-08-01"}, {"name": "Honolulu Daniel K. Inouye International", "iata": "HNL", "city": "Honolulu", "country": "USA", "region": "North America", "network": "HNL Free WiFi", "password": "None required", "notes": "Free. May require email for extended access", "verified": "2024-08-01"}, {"name": "Chicago Midway International Airport", "iata": "MDW", "city": "Chicago", "country": "USA", "region": "North America", "network": "MDW Free WiFi", "password": "None required", "notes": "Free throughout terminal", "verified": "2024-08-01"}, {"name": "Baltimore Washington International", "iata": "BWI", "city": "Baltimore", "country": "USA", "region": "North America", "network": "BWI Free WiFi", "password": "None required", "notes": "Free throughout all concourses", "verified": "2024-08-01"}, {"name": "Toronto Pearson International Airport", "iata": "YYZ", "city": "Toronto", "country": "Canada", "region": "North America", "network": "PEARSON_WIFI", "password": "None required", "notes": "Free. 1-hour limit, reconnect for more", "verified": "2024-06-01"}, {"name": "Vancouver International Airport", "iata": "YVR", "city": "Vancouver", "country": "Canada", "region": "North America", "network": "YVR Free WiFi", "password": "None required", "notes": "Free unlimited, fast. One of the best in NA", "verified": "2024-06-01"}, {"name": "Montreal Pierre Elliott Trudeau Airport", "iata": "YUL", "city": "Montreal", "country": "Canada", "region": "North America", "network": "YUL Free WiFi", "password": "None required", "notes": "Free unlimited throughout terminal", "verified": "2024-06-01"}, {"name": "Calgary International Airport", "iata": "YYC", "city": "Calgary", "country": "Canada", "region": "North America", "network": "YYC Free WiFi", "password": "None required", "notes": "Free. Login required via browser", "verified": "2024-06-01"}, {"name": "Mexico City Benito Juarez International", "iata": "MEX", "city": "Mexico City", "country": "Mexico", "region": "Latin America", "network": "AICM_WiFi", "password": "None required", "notes": "Free. 30-min sessions, reconnect after", "verified": "2024-04-01"}, {"name": "Cancun International Airport", "iata": "CUN", "city": "Cancun", "country": "Mexico", "region": "Latin America", "network": "ASUR-AEROPUERTO", "password": "None required", "notes": "Free in main terminal. Slow but usable", "verified": "2024-04-01"}, {"name": "Guadalajara Miguel Hidalgo International", "iata": "GDL", "city": "Guadalajara", "country": "Mexico", "region": "Latin America", "network": "AICM_WiFi_GDL", "password": "None required", "notes": "Free throughout main terminal", "verified": "2024-01-01"}, {"name": "Los Cabos International Airport", "iata": "SJD", "city": "Los Cabos", "country": "Mexico", "region": "Latin America", "network": "AEROPUERTO_SJD", "password": "None required", "notes": "Free. Coverage spotty in older terminal 1", "verified": "2024-01-01"}, {"name": "London Heathrow Airport", "iata": "LHR", "city": "London", "country": "UK", "region": "Europe", "network": "Heathrow WiFi", "password": "None required", "notes": "Free 1 hour per device. Premium option available", "verified": "2024-07-01"}, {"name": "London Gatwick Airport", "iata": "LGW", "city": "London", "country": "UK", "region": "Europe", "network": "_Gatwick_WiFi", "password": "None required", "notes": "Free 1 hour. Mobile number verification required", "verified": "2024-07-01"}, {"name": "London Stansted Airport", "iata": "STN", "city": "London", "country": "UK", "region": "Europe", "network": "Stansted Free WiFi", "password": "None required", "notes": "Free 30 mins, then paid via Boingo", "verified": "2024-07-01"}, {"name": "Manchester Airport", "iata": "MAN", "city": "Manchester", "country": "UK", "region": "Europe", "network": "Manchester Airport WiFi", "password": "None required", "notes": "Free 1 hour throughout all terminals", "verified": "2024-01-01"}, {"name": "Edinburgh Airport", "iata": "EDI", "city": "Edinburgh", "country": "UK", "region": "Europe", "network": "Edinburgh Airport WiFi", "password": "None required", "notes": "Free unlimited throughout terminal", "verified": "2024-01-01"}, {"name": "Frankfurt Airport", "iata": "FRA", "city": "Frankfurt", "country": "Germany", "region": "Europe", "network": "FRA Free WiFi", "password": "None required", "notes": "Free. 30-min sessions, reconnect. Telekom network", "verified": "2024-06-01"}, {"name": "Munich Airport", "iata": "MUC", "city": "Munich", "country": "Germany", "region": "Europe", "network": "MUC_FreeWiFi", "password": "None required", "notes": "Free 30 mins then paid. Good in new T2", "verified": "2024-06-01"}, {"name": "Berlin Brandenburg Airport", "iata": "BER", "city": "Berlin", "country": "Germany", "region": "Europe", "network": "BER Free WiFi", "password": "None required", "notes": "Free unlimited. Modern airport, good speeds", "verified": "2024-01-01"}, {"name": "Paris Charles de Gaulle Airport", "iata": "CDG", "city": "Paris", "country": "France", "region": "Europe", "network": "Paris Aeroport Free WiFi", "password": "None required", "notes": "Free 1 hour. ADP network. Renew each hour", "verified": "2024-06-01"}, {"name": "Paris Orly Airport", "iata": "ORY", "city": "Paris", "country": "France", "region": "Europe", "network": "Paris Aeroport Free WiFi", "password": "None required", "notes": "Free 1 hour sessions. Same ADP network", "verified": "2024-01-01"}, {"name": "Nice Cote d'Azur Airport", "iata": "NCE", "city": "Nice", "country": "France", "region": "Europe", "network": "Aeroport Nice Cote d'Azur", "password": "None required", "notes": "Free throughout terminals 1 and 2", "verified": "2024-01-01"}, {"name": "Madrid Barajas Airport", "iata": "MAD", "city": "Madrid", "country": "Spain", "region": "Europe", "network": "AENA-Aeropuertos", "password": "None required", "notes": "Free via AENA network. All terminals", "verified": "2024-06-01"}, {"name": "Barcelona El Prat Airport", "iata": "BCN", "city": "Barcelona", "country": "Spain", "region": "Europe", "network": "AENA-Aeropuertos", "password": "None required", "notes": "Free via AENA. T1 and T2", "verified": "2024-06-01"}, {"name": "Palma de Mallorca Airport", "iata": "PMI", "city": "Palma", "country": "Spain", "region": "Europe", "network": "AENA-Aeropuertos", "password": "None required", "notes": "Free AENA network throughout terminal", "verified": "2024-01-01"}, {"name": "Rome Fiumicino Airport", "iata": "FCO", "city": "Rome", "country": "Italy", "region": "Europe", "network": "ADR Wi-Fi", "password": "None required", "notes": "Free 1 hour. Phone/email verification required", "verified": "2024-06-01"}, {"name": "Milan Malpensa Airport", "iata": "MXP", "city": "Milan", "country": "Italy", "region": "Europe", "network": "SEA Free WiFi", "password": "None required", "notes": "Free. SEA Aeroporti network. T1 and T2", "verified": "2024-01-01"}, {"name": "Venice Marco Polo Airport", "iata": "VCE", "city": "Venice", "country": "Italy", "region": "Europe", "network": "VeniceAirport WiFi", "password": "None required", "notes": "Free 1 hour via browser login", "verified": "2024-01-01"}, {"name": "Amsterdam Schiphol Airport", "iata": "AMS", "city": "Amsterdam", "country": "Netherlands", "region": "Europe", "network": "Schiphol WiFi", "password": "None required", "notes": "Free unlimited. One of best in Europe", "verified": "2024-07-01"}, {"name": "Brussels Airport", "iata": "BRU", "city": "Brussels", "country": "Belgium", "region": "Europe", "network": "Brussels Airport Free WiFi", "password": "None required", "notes": "Free 1 hour via login page", "verified": "2024-01-01"}, {"name": "Zurich Airport", "iata": "ZRH", "city": "Zurich", "country": "Switzerland", "region": "Europe", "network": "Zurich Airport WiFi", "password": "None required", "notes": "Free. Telecom partner network", "verified": "2024-01-01"}, {"name": "Geneva Airport", "iata": "GVA", "city": "Geneva", "country": "Switzerland", "region": "Europe", "network": "Geneva Airport WiFi", "password": "None required", "notes": "Free throughout terminal", "verified": "2024-01-01"}, {"name": "Copenhagen Airport", "iata": "CPH", "city": "Copenhagen", "country": "Denmark", "region": "Europe", "network": "CPH Airport Free WiFi", "password": "None required", "notes": "Free unlimited. Consistently excellent speeds", "verified": "2024-06-01"}, {"name": "Stockholm Arlanda Airport", "iata": "ARN", "city": "Stockholm", "country": "Sweden", "region": "Europe", "network": "Arlanda Free WiFi", "password": "None required", "notes": "Free via login. Telia network", "verified": "2024-01-01"}, {"name": "Oslo Gardermoen Airport", "iata": "OSL", "city": "Oslo", "country": "Norway", "region": "Europe", "network": "OSL Free WiFi", "password": "None required", "notes": "Free throughout all terminals", "verified": "2024-01-01"}, {"name": "Helsinki-Vantaa Airport", "iata": "HEL", "city": "Helsinki", "country": "Finland", "region": "Europe", "network": "Helsinki Airport WiFi", "password": "None required", "notes": "Free unlimited. Fast and reliable", "verified": "2024-01-01"}, {"name": "Istanbul Airport", "iata": "IST", "city": "Istanbul", "country": "Turkey", "region": "Europe", "network": "Istanbul Airport Free", "password": "None required", "notes": "Free 2 hours. Excellent new airport coverage", "verified": "2024-06-01"}, {"name": "Warsaw Chopin Airport", "iata": "WAW", "city": "Warsaw", "country": "Poland", "region": "Europe", "network": "WAW Free WiFi", "password": "None required", "notes": "Free throughout main terminal", "verified": "2024-01-01"}, {"name": "Prague Vaclav Havel Airport", "iata": "PRG", "city": "Prague", "country": "Czech Republic", "region": "Europe", "network": "Prague Airport WiFi", "password": "None required", "notes": "Free. T1 international and T2 Schengen", "verified": "2024-01-01"}, {"name": "Vienna International Airport", "iata": "VIE", "city": "Vienna", "country": "Austria", "region": "Europe", "network": "VIEfreeWiFi", "password": "None required", "notes": "Free unlimited via Boingo partnership", "verified": "2024-01-01"}, {"name": "Lisbon Humberto Delgado Airport", "iata": "LIS", "city": "Lisbon", "country": "Portugal", "region": "Europe", "network": "ANA Free WiFi", "password": "None required", "notes": "Free throughout terminal via ANA Aeroportos", "verified": "2024-01-01"}, {"name": "Dubai International Airport", "iata": "DXB", "city": "Dubai", "country": "UAE", "region": "Middle East", "network": "DXB Free WiFi", "password": "None required", "notes": "Free 30 mins, then paid. Excellent coverage", "verified": "2024-07-01"}, {"name": "Abu Dhabi International Airport", "iata": "AUH", "city": "Abu Dhabi", "country": "UAE", "region": "Middle East", "network": "AUH Free WiFi", "password": "None required", "notes": "Free 1 hour via Etihad partner network", "verified": "2024-01-01"}, {"name": "Doha Hamad International Airport", "iata": "DOH", "city": "Doha", "country": "Qatar", "region": "Middle East", "network": "HIA Free WiFi", "password": "None required", "notes": "Free unlimited. Consistently rated world's best", "verified": "2024-07-01"}, {"name": "Istanbul Sabiha Gokcen Airport", "iata": "SAW", "city": "Istanbul", "country": "Turkey", "region": "Middle East", "network": "SAW Free WiFi", "password": "None required", "notes": "Free throughout terminal", "verified": "2024-01-01"}, {"name": "Beirut Rafic Hariri International", "iata": "BEY", "city": "Beirut", "country": "Lebanon", "region": "Middle East", "network": "MEA WiFi", "password": "None required", "notes": "Free via browser redirect login", "verified": "2023-01-01"}, {"name": "Tel Aviv Ben Gurion Airport", "iata": "TLV", "city": "Tel Aviv", "country": "Israel", "region": "Middle East", "network": "TLV Airport Free WiFi", "password": "None required", "notes": "Free throughout terminals 1 and 3", "verified": "2024-01-01"}, {"name": "Tokyo Narita International Airport", "iata": "NRT", "city": "Tokyo", "country": "Japan", "region": "Asia", "network": "Narita Free Wi-Fi", "password": "None required", "notes": "Free. Registration required via portal page", "verified": "2024-06-01"}, {"name": "Tokyo Haneda Airport", "iata": "HND", "city": "Tokyo", "country": "Japan", "region": "Asia", "network": "HND-FREE-WIFI", "password": "None required", "notes": "Free. Multiple networks, stable coverage", "verified": "2024-06-01"}, {"name": "Osaka Kansai International Airport", "iata": "KIX", "city": "Osaka", "country": "Japan", "region": "Asia", "network": "KIX Airport Wi-Fi", "password": "None required", "notes": "Free via registration portal", "verified": "2024-01-01"}, {"name": "Singapore Changi Airport", "iata": "SIN", "city": "Singapore", "country": "Singapore", "region": "Asia", "network": "Changi Airport Wi-Fi", "password": "None required", "notes": "Free unlimited. Consistently world's best airport", "verified": "2024-07-01"}, {"name": "Hong Kong International Airport", "iata": "HKG", "city": "Hong Kong", "country": "Hong Kong", "region": "Asia", "network": "HKairport Free WiFi", "password": "None required", "notes": "Free unlimited. HKG staff WiFi also visible", "verified": "2024-06-01"}, {"name": "Seoul Incheon International Airport", "iata": "ICN", "city": "Seoul", "country": "South Korea", "region": "Asia", "network": "ICN FREE Wi-Fi", "password": "None required", "notes": "Free unlimited. Routinely rated top 5 globally", "verified": "2024-06-01"}, {"name": "Bangkok Suvarnabhumi Airport", "iata": "BKK", "city": "Bangkok", "country": "Thailand", "region": "Asia", "network": "AOT Free WiFi", "password": "None required", "notes": "Free 2 hours via True Move H network", "verified": "2024-06-01"}, {"name": "Kuala Lumpur International Airport", "iata": "KUL", "city": "Kuala Lumpur", "country": "Malaysia", "region": "Asia", "network": "KL Free WiFi", "password": "None required", "notes": "Free throughout. MAHB network. Decent speeds", "verified": "2024-01-01"}, {"name": "Beijing Capital International Airport", "iata": "PEK", "city": "Beijing", "country": "China", "region": "Asia", "network": "ChinaAirport_FreeWiFi", "password": "None required", "notes": "Free. VPN blocked. T2 and T3. ID registration", "verified": "2024-01-01"}, {"name": "Shanghai Pudong International Airport", "iata": "PVG", "city": "Shanghai", "country": "China", "region": "Asia", "network": "SHAIRPORT-FREE-WLAN", "password": "None required", "notes": "Free. VPN blocked in China. Register with ID", "verified": "2024-01-01"}, {"name": "Manila Ninoy Aquino International", "iata": "MNL", "city": "Manila", "country": "Philippines", "region": "Asia", "network": "NAIA Free WiFi", "password": "None required", "notes": "Free in international terminal. Speeds variable", "verified": "2024-01-01"}, {"name": "Jakarta Soekarno-Hatta International", "iata": "CGK", "city": "Jakarta", "country": "Indonesia", "region": "Asia", "network": "AP1 Free WiFi", "password": "None required", "notes": "Free via Angkasa Pura network. T2 and T3", "verified": "2024-01-01"}, {"name": "New Delhi Indira Gandhi International", "iata": "DEL", "city": "New Delhi", "country": "India", "region": "Asia", "network": "T3_FREE_WIFI", "password": "None required", "notes": "Free 45 mins. Phone verification via OTP", "verified": "2024-06-01"}, {"name": "Mumbai Chhatrapati Shivaji International", "iata": "BOM", "city": "Mumbai", "country": "India", "region": "Asia", "network": "Mumbai Airport WiFi", "password": "None required", "notes": "Free via browser login. T2 international", "verified": "2024-01-01"}, {"name": "Taipei Taiwan Taoyuan International", "iata": "TPE", "city": "Taipei", "country": "Taiwan", "region": "Asia", "network": "TPE Airport Free WiFi", "password": "None required", "notes": "Free unlimited. Fast and reliable", "verified": "2024-06-01"}, {"name": "Sydney Kingsford Smith Airport", "iata": "SYD", "city": "Sydney", "country": "Australia", "region": "Oceania", "network": "SYD Airport WiFi", "password": "None required", "notes": "Free 1 hour. Opt-in to marketing required", "verified": "2024-06-01"}, {"name": "Melbourne Airport", "iata": "MEL", "city": "Melbourne", "country": "Australia", "region": "Oceania", "network": "Melbourne Airport WiFi", "password": "None required", "notes": "Free via registration. T2 international", "verified": "2024-01-01"}, {"name": "Brisbane Airport", "iata": "BNE", "city": "Brisbane", "country": "Australia", "region": "Oceania", "network": "BNE Airport Free WiFi", "password": "None required", "notes": "Free throughout domestic and international", "verified": "2024-01-01"}, {"name": "Auckland Airport", "iata": "AKL", "city": "Auckland", "country": "New Zealand", "region": "Oceania", "network": "Auckland Airport WiFi", "password": "None required", "notes": "Free unlimited throughout terminals", "verified": "2024-01-01"}, {"name": "Sao Paulo Guarulhos International", "iata": "GRU", "city": "Sao Paulo", "country": "Brazil", "region": "Latin America", "network": "GRU_FREE_WIFI", "password": "None required", "notes": "Free via Infraero network. Login required", "verified": "2024-01-01"}, {"name": "Rio de Janeiro Galeao International", "iata": "GIG", "city": "Rio de Janeiro", "country": "Brazil", "region": "Latin America", "network": "RioGaleao_WiFi", "password": "None required", "notes": "Free. T1 and T2. Browser registration required", "verified": "2024-01-01"}, {"name": "Bogota El Dorado International", "iata": "BOG", "city": "Bogota", "country": "Colombia", "region": "Latin America", "network": "OPENGOV", "password": "None required", "notes": "Free unlimited via government WiFi Colombia", "verified": "2024-01-01"}, {"name": "Lima Jorge Chavez International", "iata": "LIM", "city": "Lima", "country": "Peru", "region": "Latin America", "network": "LAP Free WiFi", "password": "None required", "notes": "Free throughout international terminal", "verified": "2024-01-01"}, {"name": "Santiago Arturo Merino Benitez Airport", "iata": "SCL", "city": "Santiago", "country": "Chile", "region": "Latin America", "network": "SCL Airport WiFi", "password": "None required", "notes": "Free. Login via SMS verification", "verified": "2024-01-01"}, {"name": "Buenos Aires Ministro Pistarini Airport", "iata": "EZE", "city": "Buenos Aires", "country": "Argentina", "region": "Latin America", "network": "WIFI-EZEIZA", "password": "None required", "notes": "Free 1 hour via browser login", "verified": "2024-01-01"}, {"name": "Panama City Tocumen International", "iata": "PTY", "city": "Panama City", "country": "Panama", "region": "Latin America", "network": "Tocumen International", "password": "None required", "notes": "Free via Copa Airlines hub. Good coverage", "verified": "2024-01-01"}, {"name": "San Jose Juan Santamaria International", "iata": "SJO", "city": "San Jose", "country": "Costa Rica", "region": "Latin America", "network": "Airport Costa Rica WiFi", "password": "None required", "notes": "Free throughout terminal", "verified": "2024-01-01"}, {"name": "Dubai International Airport", "iata": "DXB", "city": "Dubai", "country": "UAE", "region": "Middle East", "network": "DXB Free WiFi", "password": "None required", "notes": "Free 30 mins, then paid. Excellent coverage", "verified": "2024-07-01"}, {"name": "Johannesburg O.R. Tambo International", "iata": "JNB", "city": "Johannesburg", "country": "South Africa", "region": "Africa", "network": "ACSA Free WiFi", "password": "None required", "notes": "Free via ACSA network. T-Systems partnership", "verified": "2024-01-01"}, {"name": "Cape Town International Airport", "iata": "CPT", "city": "Cape Town", "country": "South Africa", "region": "Africa", "network": "ACSA Free WiFi", "password": "None required", "notes": "Free via same ACSA network as JNB", "verified": "2024-01-01"}, {"name": "Nairobi Jomo Kenyatta International", "iata": "NBO", "city": "Nairobi", "country": "Kenya", "region": "Africa", "network": "KAA Free WiFi", "password": "None required", "notes": "Free via KAA portal. International terminal", "verified": "2024-01-01"}, {"name": "Cairo International Airport", "iata": "CAI", "city": "Cairo", "country": "Egypt", "region": "Africa", "network": "CAI Free WiFi", "password": "None required", "notes": "Free in T1 and T2 departure areas", "verified": "2024-01-01"}, {"name": "Casablanca Mohammed V International", "iata": "CMN", "city": "Casablanca", "country": "Morocco", "region": "Africa", "network": "ONDA Free WiFi", "password": "None required", "notes": "Free via ONDA network throughout terminal", "verified": "2024-01-01"}, {"name": "Addis Ababa Bole International Airport", "iata": "ADD", "city": "Addis Ababa", "country": "Ethiopia", "region": "Africa", "network": "EAL Free WiFi", "password": "None required", "notes": "Free via Ethiopian Airlines hub network", "verified": "2024-01-01"}, {"name": "Lagos Murtala Muhammed International", "iata": "LOS", "city": "Lagos", "country": "Nigeria", "region": "Africa", "network": "LOS Airport WiFi", "password": "None required", "notes": "Free. Coverage limited to main departure hall", "verified": "2023-01-01"}];
+
+let activeRegion = 'all';
+
+function escapeHtml(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function ageLabel(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  const now = new Date();
+  const months = (now - d) / (1000 * 60 * 60 * 24 * 30);
+  if (months < 3)  return ['fresh', 'Recently verified'];
+  if (months < 12) return ['stale', 'Verified ' + Math.round(months) + ' months ago'];
+  return ['stale', 'Verify at airport — older entry'];
+}
+
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function renderCard(a) {
+  const netClass  = a.network === 'Open / No password' ? 'open' : (a.network === 'N/A' ? 'none' : '');
+  const passClass = a.password === 'None required' || a.password === 'Open' ? 'open' :
+                    (a.password === 'N/A' ? 'none' : '');
+  const [ageClass, ageText] = ageLabel(a.verified);
+  const copyNet  = a.network && !['Open / No password','N/A'].includes(a.network)
+    ? `<button class="copy-btn" onclick="copyText(this,'${escapeHtml(a.network)}')">Copy</button>` : '';
+  const copyPass = a.password && !['None required','Open','N/A'].includes(a.password)
+    ? `<button class="copy-btn" onclick="copyText(this,'${escapeHtml(a.password)}')">Copy</button>` : '';
+  const notes = a.notes ? `<div class="wifi-row"><div class="wifi-label">Notes</div><div class="wifi-value" style="color:#94a3b8">${escapeHtml(a.notes)}</div></div>` : '';
+  const age = ageText ? `<div class="verified ${ageClass}">&#x1F551; ${ageText}</div>` : '';
+
+  return `
+<div class="card">
+  <div class="card-top">
+    <div class="airport-name">${escapeHtml(a.name)}</div>
+    <div class="iata">${escapeHtml(a.iata)}</div>
+  </div>
+  <div class="location">&#x1F4CD; ${escapeHtml(a.city)}, ${escapeHtml(a.country)}</div>
+  <div class="wifi-row">
+    <div class="wifi-label">Network Name (SSID)</div>
+    <div class="wifi-value ${netClass}">${escapeHtml(a.network)} ${copyNet}</div>
+  </div>
+  <div class="wifi-row">
+    <div class="wifi-label">Password</div>
+    <div class="wifi-value ${passClass}">${escapeHtml(a.password)} ${copyPass}</div>
+  </div>
+  ${notes}
+  ${age}
+</div>`;
+}
+
+function render() {
+  const q    = document.getElementById('search').value.toLowerCase().trim();
+  const grid = document.getElementById('grid');
+
+  const filtered = AIRPORTS.filter(a => {
+    const regionOk = activeRegion === 'all' || a.region === activeRegion;
+    if (!regionOk) return false;
+    if (!q) return true;
+    return (a.name    || '').toLowerCase().includes(q) ||
+           (a.iata    || '').toLowerCase().includes(q) ||
+           (a.city    || '').toLowerCase().includes(q) ||
+           (a.country || '').toLowerCase().includes(q) ||
+           (a.network || '').toLowerCase().includes(q);
+  });
+
+  document.getElementById('result-count').textContent =
+    q || activeRegion !== 'all'
+      ? `Showing ${filtered.length} of ${AIRPORTS.length} airports`
+      : `${AIRPORTS.length} airports — start typing to filter`;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="no-results">No airports found. Try a different search.</div>';
+    return;
+  }
+  grid.innerHTML = filtered.map(renderCard).join('');
+}
+
+document.getElementById('search').addEventListener('input', render);
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeRegion = btn.dataset.region;
+    render();
+  });
+});
+
+render();
+</script>
+</body>
+</html>
