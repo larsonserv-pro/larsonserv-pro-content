@@ -2,15 +2,242 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Travel News -- LarsonServ.Pro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Travel News | LarsonServ.Pro</title>
 <style>
-  body{font-family:sans-serif;text-align:center;padding:60px;color:#555;background:#f4f6f9}
-  h2{color:#1a1a2e}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+    color: #1a1a1a;
+    padding: 24px 16px;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .header h1 {
+    font-size: 1.8em;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+  }
+  .header .updated {
+    font-size: 0.8em;
+    color: #888;
+  }
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .news-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border-top: 3px solid #1a6bb5;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card-source {
+    font-size: 0.72em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #1a6bb5;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+  }
+  .date {
+    color: #aaa;
+    font-weight: 400;
+    text-transform: none;
+  }
+  .card-title {
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .card-title a {
+    color: #1a1a2e;
+    text-decoration: none;
+  }
+  .card-title a:hover {
+    color: #1a6bb5;
+    text-decoration: underline;
+  }
+  .card-summary {
+    font-size: 0.875em;
+    color: #444;
+    line-height: 1.6;
+  }
+  .take {
+    font-size: 0.85em;
+    color: #2d6a4f;
+    background: #f0faf4;
+    border-left: 3px solid #40916c;
+    padding: 8px 10px;
+    border-radius: 0 6px 6px 0;
+    line-height: 1.5;
+  }
+  .affiliate-hint {
+    font-size: 0.78em;
+    color: #666;
+    border-top: 1px solid #eee;
+    padding-top: 8px;
+    line-height: 1.5;
+  }
+  .affiliate-hint a {
+    color: #1a6bb5;
+  }
+  .footer {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 0.75em;
+    color: #bbb;
+  }
+  @media (max-width: 600px) {
+    .news-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
-<h2>Travel News</h2>
-<p>First update coming Monday at 7:00 AM.</p>
-<p style="font-size:0.8em;color:#aaa;margin-top:2em">Auto-refreshed weekly -- LarsonServ.Pro</p>
+
+<div class="header">
+  <h1>&#9992; Travel News &amp; Deals</h1>
+  <div class="updated">Curated for travelers &mdash; Updated August 12, 2026 at 20:51 UTC</div>
+</div>
+
+<div class="news-grid">
+
+<div class="news-card">
+  <div class="card-source">The Points Guy </div>
+  <h3 class="card-title">
+    <a href="https://thepointsguy.com/news/us-bank-adds-hotel-and-airline-transfer-partners/" target="_blank" rel="nofollow noopener">
+      US Bank adds hotel and airline transfer partners for the first time — here&#x27;s why that matters
+    </a>
+  </h3>
+  <p class="card-summary">U.S. Bank has added airline and hotel transfer partners to the Altitude Reserve card for the first time, including Flying Blue, Qantas, Accor and ShebaMiles.</p>
+  
+  <div class="affiliate-hint">Find cheap fares on <a href="http://jet-tickets.com/?marker=324339" target="_blank" rel="nofollow">Jet-Radar</a> (affiliate link) or track your miles with <a href="https://awardwallet.com/?refCode=3k5xbqm6p5" target="_blank" rel="nofollow">AwardWallet</a> (affiliate link).</div>
+</div>
+
+<div class="news-card">
+  <div class="card-source">The Points Guy </div>
+  <h3 class="card-title">
+    <a href="https://thepointsguy.com/credit-cards/chase-card-referral-bonus-guide/" target="_blank" rel="nofollow noopener">
+      Earn rewards with Chase’s Refer-A-Friend program
+    </a>
+  </h3>
+  <p class="card-summary">Chase card referral bonuses can be a great way to earn bonus rewards without making a purchase. Here&#x27;s what to know about Chase Refer-A-Friend.</p>
+  
+  <div class="affiliate-hint">Track all your rewards in one place with <a href="https://awardwallet.com/?refCode=3k5xbqm6p5" target="_blank" rel="nofollow">AwardWallet</a> (affiliate link).</div>
+</div>
+
+<div class="news-card">
+  <div class="card-source">View from the Wing </div>
+  <h3 class="card-title">
+    <a href="https://viewfromthewing.com/passengers-refuse-to-fly-in-sweltering-cabin-then-chant-stop-playing-with-our-lives/" target="_blank" rel="nofollow noopener">
+      Passengers Refuse To Fly In Sweltering Cabin — Then Chant “Stop Playing With Our Lives”
+    </a>
+  </h3>
+  <p class="card-summary">Passengers on a SpiceJet flight from Delhi to Pune refused to take off after the cabin became unbearably hot, with travelers fanning themselves, crowding the forward door, and later chanting “Stop playing with our lives.” SpiceJet says the air conditioning remained operational, b...</p>
+  
+  <div class="affiliate-hint">Find cheap fares on <a href="http://jet-tickets.com/?marker=324339" target="_blank" rel="nofollow">Jet-Radar</a> (affiliate link) or track your miles with <a href="https://awardwallet.com/?refCode=3k5xbqm6p5" target="_blank" rel="nofollow">AwardWallet</a> (affiliate link).</div>
+</div>
+
+<div class="news-card">
+  <div class="card-source">View from the Wing </div>
+  <h3 class="card-title">
+    <a href="https://viewfromthewing.com/premium-travel-cards-now-cost-up-to-895-but-95-cards-still-deliver-outsized-rewards/" target="_blank" rel="nofollow noopener">
+      Premium Travel Cards Now Cost Up To $895 But $95 Cards Still Deliver Outsized Rewards
+    </a>
+  </h3>
+  <p class="card-summary">You do not need a $395, $495, or $895 annual fee card to earn valuable travel rewards. These mid-tier cards, mostly around $95 per year, can still deliver strong returns through transferable points, travel and dining bonuses, airline and hotel partners, rent or mortgage rewards, ...</p>
+  
+  <div class="affiliate-hint">Track all your rewards in one place with <a href="https://awardwallet.com/?refCode=3k5xbqm6p5" target="_blank" rel="nofollow">AwardWallet</a> (affiliate link).</div>
+</div>
+
+<div class="news-card">
+  <div class="card-source">One Mile at a Time </div>
+  <h3 class="card-title">
+    <a href="https://onemileatatime.com/news/aman-breaks-silence-deceptively-edited-ryan-walker-amanvari-video/" target="_blank" rel="nofollow noopener">
+      Aman Breaks Silence On “Deceptively Edited” Ryan Walker Amanvari Video
+    </a>
+  </h3>
+  <p class="card-summary">Last week, luxury hotel group Aman&amp;#8217;s newest property, Amanvari, made global headlines, and not in a good way. A YouTuber claimed that the hotel canceled his reservation at the last minute and then called the police on him. The backlash to this was massive, yet the hotel rem...</p>
+  
+  <div class="affiliate-hint">Compare hotel prices across every booking site with <a href="https://tp.media/r?marker=324339&trs=134753&p=4115&u=https%3A%2F%2Fhotellook.com" target="_blank" rel="nofollow">HotelLook</a> (affiliate link).</div>
+</div>
+
+<div class="news-card">
+  <div class="card-source">One Mile at a Time </div>
+  <h3 class="card-title">
+    <a href="https://onemileatatime.com/news/airbaltic-shrink-massively-struggles-business/" target="_blank" rel="nofollow noopener">
+      airBaltic Will Shrink Massively, As It Struggles To Stay In Business
+    </a>
+  </h3>
+  <p class="card-summary">Latvian flag carrier airBaltic has been in a rough financial spot for some time, and in recent weeks there has been talk of the airline potentially needing to suspend operations due to running out of cash.</p>
+  
+  <div class="affiliate-hint">Find cheap fares on <a href="http://jet-tickets.com/?marker=324339" target="_blank" rel="nofollow">Jet-Radar</a> (affiliate link) or track your miles with <a href="https://awardwallet.com/?refCode=3k5xbqm6p5" target="_blank" rel="nofollow">AwardWallet</a> (affiliate link).</div>
+</div>
+
+<div class="news-card">
+  <div class="card-source">Skift </div>
+  <h3 class="card-title">
+    <a href="https://skift.com/2026/08/12/tui-q3-earnings-iran-war/" target="_blank" rel="nofollow noopener">
+      Stranded Cruise Ships, Higher Fuel Prices: Iran War Eats Into TUI’s Profits
+    </a>
+  </h3>
+  <p class="card-summary">Bookings were softer in the company’s third quarter, but executives said business has started to normalize in recent weeks.</p>
+  
+  <div class="affiliate-hint">Book tours and excursions through <a href="https://viator.tp.st/jBUeOGzC" target="_blank" rel="nofollow">Viator</a> (affiliate link).</div>
+</div>
+
+<div class="news-card">
+  <div class="card-source">Skift </div>
+  <h3 class="card-title">
+    <a href="https://skift.com/2026/08/12/these-13-environmental-laws-could-be-waived-to-speed-up-airport-to-spaceport-conversions/" target="_blank" rel="nofollow noopener">
+      These 13 Environmental Laws Could be Waived to Speed Up Airport-to-Spaceport Conversions
+    </a>
+  </h3>
+  <p class="card-summary">The industry praised the move but environmentalists say it’s a giveaway of power.</p>
+  
+  <div class="affiliate-hint">Find cheap fares on <a href="http://jet-tickets.com/?marker=324339" target="_blank" rel="nofollow">Jet-Radar</a> (affiliate link) or track your miles with <a href="https://awardwallet.com/?refCode=3k5xbqm6p5" target="_blank" rel="nofollow">AwardWallet</a> (affiliate link).</div>
+</div>
+
+<div class="news-card">
+  <div class="card-source">Nomadic Matt </div>
+  <h3 class="card-title">
+    <a href="https://www.nomadicmatt.com/travel-blogs/nomad-citizen-review/" target="_blank" rel="nofollow noopener">
+      Nomad Citizen: A New Social Safety Net for Entrepreneurs
+    </a>
+  </h3>
+  <p class="card-summary">If you’re a digital nomad or a location-independent business owner, you’re either overpaying for fragmented insurance coverage (travel, medical, etc.) or just badly underinsured. You have a health plan, travel insurance, and maybe some medical evacuation coverage. But, when you w...</p>
+  
+  <div class="affiliate-hint">Find cheap fares on <a href="http://jet-tickets.com/?marker=324339" target="_blank" rel="nofollow">Jet-Radar</a> (affiliate link) or track your miles with <a href="https://awardwallet.com/?refCode=3k5xbqm6p5" target="_blank" rel="nofollow">AwardWallet</a> (affiliate link).</div>
+</div>
+
+<div class="news-card">
+  <div class="card-source">Nomadic Matt </div>
+  <h3 class="card-title">
+    <a href="https://www.nomadicmatt.com/travel-blogs/faye-travel-insurance-review/" target="_blank" rel="nofollow noopener">
+      Faye Travel Insurance: The Best New Company Out there
+    </a>
+  </h3>
+  <p class="card-summary">We may receive compensation from Faye as an advertising partner. However, this does not influence our evaluations. Our opinions are our own. I&amp;#8217;ve been writing about travel for nearly two decades and, in that time, I&amp;#8217;ve watched the travel insurance industry change at r...</p>
+  
+  <div class="affiliate-hint">Flight delayed or cancelled? <a href="https://c120.travelpayouts.com/click?shmarker=324339&promo_id=3670&source_type=link&type=click&trs=134753" target="_blank" rel="nofollow">AirHelp</a> (affiliate link) fights for your compensation.</div>
+</div>
+</div>
+
+<div class="footer">
+  Curated by LarsonServ.Pro &mdash; Stories link to original sources.<br>
+  Some links below stories are affiliate links &mdash; I earn a small commission at no cost to you.
+</div>
+
 </body>
 </html>
