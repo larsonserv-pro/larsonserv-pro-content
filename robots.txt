@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://larsonserv-pro.github.io/larsonserv-pro-content/sitemap.xml
